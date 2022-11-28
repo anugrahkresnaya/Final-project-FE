@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const ButtonSignUp = styled.button`
     background-color: #FFB934;
@@ -52,8 +53,8 @@ function Navigation() {
                   <Nav.Link href="#action2">Passenger</Nav.Link>
                   <Nav.Link href="#action2">Your Orders</Nav.Link>
                 </Nav>
-                <ButtonSignUp>Sign Up</ButtonSignUp>
-                <ButtonLogin>Login</ButtonLogin>
+                <Link href="/signup"><ButtonSignUp>Sign Up</ButtonSignUp></Link>
+                <Link href="/login"><ButtonLogin>Login</ButtonLogin></Link>
                
               </Offcanvas.Body>
             </Navbar.Offcanvas>
