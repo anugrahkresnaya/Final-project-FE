@@ -9,7 +9,7 @@ const TextLeft = styled.h1`
 
 const Wrapper = styled.section`
   padding: 4em;
-  background: #2D80EC;
+  background: #4600FF;
   border-radius: 10px;
 `;
 function WhyUs() {

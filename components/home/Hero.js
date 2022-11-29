@@ -1,7 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from 'next/image';
-import HeroImg from "../assets/hero.png"
+import HeroImg from "../../assets/hero.png"
 import styled from 'styled-components';
 import { Container, Col, Row } from 'react-bootstrap';
 

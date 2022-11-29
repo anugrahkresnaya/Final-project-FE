@@ -1,9 +1,10 @@
 import React from 'react'
 import Head from 'next/head'
-import Footer from '../components/Footer'
-import Hero from '../components/Hero'
-import Navigation from '../components/Navbar'
-import WhyUs from '../components/WhyUs'
+import Footer from '../components/home/Footer'
+import Hero from '../components/home/Hero'
+import Navigation from '../components/home/Navbar'
+import WhyUs from '../components/home/WhyUs'
+import Benefits from '../components/home/Benefits'
 
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
     <Navigation />
     <Hero />
     <WhyUs />
+    <Benefits />
     <Footer />
     </>
   )
