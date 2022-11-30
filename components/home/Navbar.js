@@ -8,11 +8,11 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 const ButtonSignUp = styled.button`
-    background-color: #FFB934;
+    background-color: #4600FF;
     color: white;
     font-size: 1em;
     padding: 0.25em 1em;
-    border: 2px solid #FFB934;
+    border: 2px solid #4600FF;
     border-radius: 30px;
     margin-right: 10px;
     display: block;
@@ -24,7 +24,7 @@ const ButtonLogin = styled.button`
     font-size: 1em;
     padding: 0.25em 1em;
     border-radius: 30px;
-    border: 2px solid #FFB934;
+    border: 2px solid #4600FF;
     display: block;
 `;
 
