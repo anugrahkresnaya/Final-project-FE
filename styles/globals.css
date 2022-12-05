@@ -16,4 +16,33 @@ a {
   box-sizing: border-box;
 }
 
+.hero-wrapper{
+  background-image: url('/skyy.jpg');
+  height: 500px;
+  /* center and scale the image */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* use the following only if if you are able to scroll past the image to see a white area (this is the <body> peeking out) above or below the image */
+  overflow: hidden;
+  /* margin-left: -25px; */
+}
+.li-icon {
+  margin: 0;
+  padding:5px;
+  width: 100%;
+}
+
+ul { 
+  list-style-type: none;
+}
+
+ul#myRow .li-icon {
+  display: inline-block;
+  width: auto;
+}
+
+
+
 

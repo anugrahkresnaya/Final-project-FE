@@ -5,6 +5,7 @@ import Hero from '../components/home/Hero'
 import Navigation from '../components/home/Navbar'
 import WhyUs from '../components/home/WhyUs'
 import Benefits from '../components/home/Benefits'
+import BgImage from '../components/home/BgImage'
 
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <Navigation />
+    {/* <BgImage /> */}
     <Hero />
     <WhyUs />
     <Benefits />

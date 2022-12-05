@@ -1,33 +1,52 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Image from 'next/image';
-import HeroImg from "../../assets/hero.png"
 import styled from 'styled-components';
+import imgHero from "../../assets/sky.png"
 import { Container, Col, Row } from 'react-bootstrap';
+import Link from 'next/link';
 
-const TextHero = styled.h1`
-    color: black;
-    font-size: 1.5em;    
-    padding: 10em 5em;
+const WrapperHero = styled.section`
+    height: 500px;
+`;
+
+const WrapperButtonHero = styled.section`
+    margin: 0;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+`;
+
+const ButtonHero = styled.button`
+    background-color: #FFE15D;
+    color: #4600FF;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0.25em 5em;
+    border: 2px solid #FFE15D;
+    border-radius: 30px;
+    margin-right: 10px;
     display: block;
 `;
+
 
 function Hero() {
     return (
         <>
-        <Container>
-            <Row>
-                <Col lg={6}>
-                    <Image src={HeroImg} alt="Hero" className='mx-auto' width={500} height={500}/>
-                </Col>
-                <Col lg={6}>
-                    <TextHero>Lorem Ipsum Dolor Sit Amet</TextHero>
-                </Col>
-            </Row>
-        </Container>
 
+      
+        <WrapperHero className='hero-wrapper'>
+            <WrapperButtonHero>
+            <Link href="/filter"><ButtonHero>Start Booking</ButtonHero></Link>
+            </WrapperButtonHero>
+            
+        </WrapperHero>
+       
+        
         </>
-);
+    );
 }
 
 export default Hero;

@@ -1,6 +1,10 @@
+import Image from 'next/image';
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import styled from 'styled-components';
+import Logo from "../../assets/logo.png"
+import GooglePlay from "../../assets/google-play-badge.png"
+import { FaInstagram, FaLinkedin, FaTiktok, FaTwitter } from 'react-icons/fa';
 
 const WrapperFooter = styled.section`
     margin-top: 4em;   
@@ -24,29 +28,37 @@ const TextFooter = styled.p`
     font-size: 15px;
     text-align: center;
 `;
+
+const styleIcons = { 
+    color: "#4600FF", 
+    fontSize: "35px" 
+}
+
+
 function Footer() {
     return (
         <WrapperFooter>
             <Container>
                 <Row>  
                     <Col lg={6}>
-                        LOGO
+                    <Image src={Logo} width={180} height={180} alt="logo" ></Image>
                     </Col>
-                    <Col lg={6}>
-                        <Row>
-                            <Col xs={12} sm={4}>
-                                <NavigationFooter>About</NavigationFooter>
-                                <TextNavigationFooter>Lorem Ipsum</TextNavigationFooter>
-                            </Col>
-                            <Col xs={12} sm={4}>
-                                <NavigationFooter>Products</NavigationFooter>
-                                <TextNavigationFooter>Lorem Ipsum</TextNavigationFooter>
-                            </Col>
-                            <Col xs={12} sm={4}>
-                                <NavigationFooter>Social</NavigationFooter>
-                                <TextNavigationFooter>Lorem Ipsum</TextNavigationFooter>
-                            </Col>
-                        </Row>
+                    <Col lg={6} className="text-center">
+                    <Row>
+                        <Col>
+                            <Image src={GooglePlay} width={200} height={80} alt="Google Play" ></Image>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                        <ul id="myRow">
+                            <li className='li-icon'><FaInstagram style={styleIcons} /></li>
+                            <li className='li-icon'><FaTwitter style={styleIcons} /></li>
+                            <li className='li-icon'><FaLinkedin style={styleIcons} /></li>
+                            <li className='li-icon'><FaTiktok style={styleIcons} /></li>
+                        </ul>                        
+                        </Col>
+                    </Row>
                     </Col>
                 </Row> 
                 <Line />

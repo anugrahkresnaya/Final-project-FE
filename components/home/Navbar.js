@@ -6,6 +6,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import styled from 'styled-components';
 import Link from 'next/link';
+import Image from 'next/image';
+import Logo from "../../assets/logo.png"
 
 const ButtonSignUp = styled.button`
     background-color: #4600FF;
@@ -26,6 +28,7 @@ const ButtonLogin = styled.button`
     border-radius: 30px;
     border: 2px solid #4600FF;
     display: block;
+    text-decoration: none;
 `;
 
 function Navigation() {
@@ -34,7 +37,7 @@ function Navigation() {
       {['lg'].map((expand) => (
         <Navbar key={expand} expand={expand} className="mb-3">
           <Container fluid>
-            <Navbar.Brand href="#">LOGO</Navbar.Brand>
+            <Navbar.Brand href="#"><Image src={Logo} width={80} height={80} alt="logo" ></Image></Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
