@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
+import FormSignUp from '../components/auth/WrapperSignUp';
 
 const SignUp = () => {
     return (
@@ -8,7 +9,7 @@ const SignUp = () => {
             <title>Sign Up | E-Flight</title>
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         </Head>
-        <h1>Halaman Sign Up</h1>
+        <FormSignUp />
         </>
     );
 }

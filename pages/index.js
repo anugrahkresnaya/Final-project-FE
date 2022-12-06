@@ -5,7 +5,7 @@ import Hero from '../components/home/Hero'
 import Navigation from '../components/home/Navbar'
 import WhyUs from '../components/home/WhyUs'
 import Benefits from '../components/home/Benefits'
-import BgImage from '../components/home/BgImage'
+
 
 
 export default function Home() {
