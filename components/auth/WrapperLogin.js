@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 import { FaGoogle } from 'react-icons/fa';
 import Link from 'next/link';
+import {useSession, signIn, signOut} from 'next-auth/react'
 
 
 const BodyLogin = styled.section`
@@ -73,31 +74,48 @@ function FormLogin() {
     
         setValidated(true);
       };
+      const {data: session} = useSession()
+      console.log(session);
+      if (session){
   return (
-    <>
-    <BodyLogin>
-        <WrapperFormLogin>
-        <TitleLogin style={{textAlign: "center"}}>Sign In</TitleLogin>
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" required>
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Input email" controlId="email" required/>
-                <Form.Control.Feedback type="invalid">Please fill the email!</Form.Control.Feedback>
-                <p style={{fontSize:"13px"}}>We'll never share your email with anyone else.</p>
-            </Form.Group>
-            <Form.Group className="mb-3" required>
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Input password" controlId="password" required />
-                <Form.Control.Feedback type="invalid">Please fill the password!</Form.Control.Feedback>
-            </Form.Group>
-            <ButtonLogin className='mx-auto' style={{textAlign: "center"}}>Sign In</ButtonLogin>
-        </Form>
-        <ButtonLoginGoogle className='mx-auto mt-3' style={{textAlign: "center"}}>Login with Google <FaGoogle /></ButtonLoginGoogle>
-        <TextBottomLogin className='text-center mt-4'>If you dont have account, <Link href="/signup">Sign Up Here</Link></TextBottomLogin>
-    </WrapperFormLogin>
-</BodyLogin>
-</>
+    <div>
+    <p>welcome, {session.user.name}</p>
+    <button onClick={() => signOut()}>Sign Out</button>
+</div>
+
   );
+}
+else {
+    return(
+        <>
+        <BodyLogin>
+            <WrapperFormLogin>
+            <TitleLogin style={{textAlign: "center"}}>Sign In</TitleLogin>
+            <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                <Form.Group className="mb-3" required>
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control type="email" placeholder="Input email" controlId="email" required/>
+                    <Form.Control.Feedback type="invalid">Please fill the email!</Form.Control.Feedback>
+                    <p style={{fontSize:"13px"}}>We'll never share your email with anyone else.</p>
+                </Form.Group>
+                <Form.Group className="mb-3" required>
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control type="password" placeholder="Input password" controlId="password" required />
+                    <Form.Control.Feedback type="invalid">Please fill the password!</Form.Control.Feedback>
+                </Form.Group>
+                <ButtonLogin className='mx-auto' style={{textAlign: "center"}}>Sign In</ButtonLogin>
+            </Form>
+            <ButtonLoginGoogle className='mx-auto mt-3' style={{textAlign: "center"}} onClick={() => signIn()}>Login with Google <FaGoogle /></ButtonLoginGoogle>
+            <TextBottomLogin className='text-center mt-4'>If you dont have account, <Link href="/signup">Sign Up Here</Link></TextBottomLogin>
+        </WrapperFormLogin>
+    </BodyLogin>
+    </>
+        // <div>
+        //     <p>youre not login</p>
+        //     <button onClick={() => signIn()}>Login</button>
+        // </div>
+    );
+}
 }
 
 export default FormLogin
