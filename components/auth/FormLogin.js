@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
+import Image from 'next/image';
+import Link from 'next/link';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Logo from "../../assets/logo.png"
 import styled from 'styled-components';
 import { FaGoogle } from 'react-icons/fa';
-import Link from 'next/link';
 import {useSession, signIn, signOut} from 'next-auth/react'
-
+import Hero from '../home/Hero';
+import WhyUs from '../home/WhyUs';
+import Benefits from '../home/Benefits';
+import Footer from '../home/Footer';
 
 const BodyLogin = styled.section`
     background: #fff;
@@ -78,11 +83,46 @@ function FormLogin() {
       console.log(session);
       if (session){
   return (
+    <>
+    {['lg'].map((expand) => (
+      <Navbar key={expand} expand={expand} className="mb-3">
+        <Container fluid>
+          <Navbar.Brand href="#"><Image src={Logo} width={80} height={80} alt="logo" ></Image></Navbar.Brand>
+          <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+          <Navbar.Offcanvas
+            id={`offcanvasNavbar-expand-${expand}`}
+            aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+            placement="end"
+          >
+            <Offcanvas.Header closeButton>
+              <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+               E-flights
+              </Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <Nav className="justify-content-center flex-grow-1">
+                <Nav.Link href="#action1">All Flights</Nav.Link>
+                <Nav.Link href="#action2">Schedule</Nav.Link>
+                <Nav.Link href="#action2">Passenger</Nav.Link>
+                <Nav.Link href="#action2">Your Orders</Nav.Link>
+              </Nav>
+              <p>welcome back, {session.user.name}</p>
+             
+            </Offcanvas.Body>
+          </Navbar.Offcanvas>
+        </Container>
+      </Navbar>
+    ))}
+  <Hero />
+  <WhyUs />
+  <Benefits />
+  <Footer />
+    
     <div>
-    <p>welcome, {session.user.name}</p>
-    <button onClick={() => signOut()}>Sign Out</button>
-</div>
 
+<button onClick={() => signOut()}>Sign Out</button>
+</div>
+  </>
   );
 }
 else {
@@ -110,10 +150,6 @@ else {
         </WrapperFormLogin>
     </BodyLogin>
     </>
-        // <div>
-        //     <p>youre not login</p>
-        //     <button onClick={() => signIn()}>Login</button>
-        // </div>
     );
 }
 }

@@ -1,8 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Image from 'next/image';
 import styled from 'styled-components';
-import imgHero from "../../assets/sky.png"
 import { Container, Col, Row } from 'react-bootstrap';
 import Link from 'next/link';
 
